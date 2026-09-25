@@ -49,25 +49,6 @@
                 background-color 0.3s ease,
                 color 0.3s ease;
         }
-
-        /* Decorative icon animation */
-        @keyframes float {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-10px) rotate(2deg);
-            }
-
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-        }
-
-        .float-anim {
-            animation: float 6s ease-in-out infinite;
-        }
     </style>
 </head>
 
@@ -126,37 +107,21 @@
         </button>
     </nav>
 
-    <main class="flex-grow flex flex-col items-center justify-start w-full max-w-5xl mx-auto px-6 py-12">
+    <main class="flex-grow flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-6 pb-12">
 
-        <header class="text-center flex flex-col items-center mb-24 relative w-full mt-8">
-
-            <!-- Decorative SVG Icon -->
-            <div class="absolute -top-12 md:-top-16 md:left-24 opacity-20 dark:opacity-10 float-anim pointer-events-none hidden md:block text-cactus-green">
-                <svg
-                    width="64"
-                    height="64"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <path d="M10 21V10a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v11" />
-                    <path d="M10 13H9a2 2 0 0 1-2-2V8" />
-                    <path d="M14 15h1a2 2 0 0 0 2-2v-4" />
-                </svg>
-            </div>
+        <!-- Hero / Header Section Centered Vertically & Horizontally -->
+        <header class="text-center flex flex-col items-center justify-center min-h-[65vh] w-full py-8 mb-12">
 
             <!-- Main Logo -->
-            <div class="mb-8 flex flex-col items-center justify-center">
+            <div class="w-full flex items-center justify-center mb-8 px-4">
                 <img
-                    src="images/cc_logo-trns-sm.png"
+                    src="images/cc_logo-trns.png"
                     alt="Cactus Coffee"
+                    class="w-auto h-auto max-w-[75vw] sm:max-w-xs md:max-w-md max-h-[38vh] object-contain mx-auto select-none"
                 >
             </div>
 
-            <p class="text-lg md:text-xl max-w-xl mx-auto font-jp text-cactus-dark/80 dark:text-cactus-light/80 mt-4 leading-relaxed font-medium">
+            <p class="text-lg md:text-xl max-w-xl mx-auto font-jp text-cactus-dark/80 dark:text-cactus-light/80 mt-2 leading-relaxed font-medium">
                 A unique blending of precision and warmth.<br>
                 <span class="text-cactus-green mt-3 block text-base md:text-lg">
                     砂漠のオアシスで、特別な一杯を。
