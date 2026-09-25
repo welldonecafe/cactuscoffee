@@ -54,16 +54,15 @@
 
 <body class="bg-cactus-light text-cactus-dark dark:bg-cactus-night dark:text-cactus-light font-sans antialiased min-h-screen flex flex-col">
 
-    <nav class="w-full max-w-5xl mx-auto px-6 py-8 flex justify-between items-center">
-        <!-- Brand / Logo Area -->
-        <div class="flex flex-col items-start cursor-pointer hover:opacity-80 transition-opacity">
-            <span class="font-jp text-xl tracking-wider font-semibold">
-                サボテンコーヒー
-            </span>
-            <span class="text-xs tracking-widest uppercase opacity-70 mt-1">
-                Cactus Coffee
-            </span>
-        </div>
+    <nav class="w-full max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Upper-Left Brand Logo (Smaller) -->
+        <a href="#" class="flex items-center cursor-pointer hover:opacity-80 transition-opacity">
+            <img
+                src="images/cc_logo-trns.png"
+                alt="Cactus Coffee | サボテンコーヒー"
+                class="h-10 sm:h-12 md:h-14 w-auto object-contain select-none"
+            >
+        </a>
 
         <!-- Theme Toggle Button -->
         <button
@@ -107,30 +106,30 @@
         </button>
     </nav>
 
-    <main class="flex-grow flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-6 pb-12">
+    <main class="flex-grow flex flex-col items-center justify-start w-full max-w-5xl mx-auto px-6 pb-12">
 
-        <!-- Hero / Header Section Centered Vertically & Horizontally -->
-        <header class="text-center flex flex-col items-center justify-center min-h-[65vh] w-full py-8 mb-12">
+        <!-- Hero / Header Section with tighter spacing -->
+        <header class="text-center flex flex-col items-center justify-center w-full mt-2 mb-8">
 
-            <!-- Main Logo -->
-            <div class="w-full flex items-center justify-center mb-8 px-4">
+            <!-- Main Centered Image -->
+            <div class="w-full flex items-center justify-center mb-3 px-4">
                 <img
-                    src="images/cc_logo-trns.png"
+                    src="images/cc_mockup.jpg"
                     alt="Cactus Coffee"
-                    class="w-auto h-auto max-w-[75vw] sm:max-w-xs md:max-w-md max-h-[38vh] object-contain mx-auto select-none"
+                    class="w-auto h-auto max-w-[85vw] sm:max-w-sm md:max-w-md max-h-[42vh] object-contain rounded-2xl mx-auto select-none"
                 >
             </div>
 
-            <p class="text-lg md:text-xl max-w-xl mx-auto font-jp text-cactus-dark/80 dark:text-cactus-light/80 mt-2 leading-relaxed font-medium">
+            <p class="text-lg md:text-xl max-w-xl mx-auto font-jp text-cactus-dark/80 dark:text-cactus-light/80 leading-relaxed font-medium">
                 A unique blending of precision and warmth.<br>
-                <span class="text-cactus-green mt-3 block text-base md:text-lg">
+                <span class="text-cactus-green mt-1.5 block text-base md:text-lg">
                     砂漠のオアシスで、特別な一杯を。
                 </span>
             </p>
         </header>
 
         <section class="w-full">
-            <div class="flex items-center justify-center mb-16">
+            <div class="flex items-center justify-center mb-12">
                 <div class="h-px bg-cactus-green/30 flex-grow max-w-[120px]"></div>
 
                 <h2 class="text-2xl font-semibold font-jp tracking-widest px-8 uppercase text-cactus-green">
