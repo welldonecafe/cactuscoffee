@@ -1,229 +1,253 @@
-!DOCTYPE html
-html lang=en class=scroll-smooth
-head
-    meta charset=UTF-8
-    meta name=viewport content=width=device-width, initial-scale=1.0
-    titleCactus Coffee  サボテンコーヒーtitle
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cactus Coffee | サボテンコーヒー</title>
     
-    link rel=preconnect href=httpsfonts.googleapis.com
-    link rel=preconnect href=httpsfonts.gstatic.com crossorigin
-    !-- Using Montserrat for the English sans-serif and Noto Sans JP for the Japanese Gothic - reduced weights for a less bold look --
-    link href=httpsfonts.googleapis.comcss2family=Montserratwght@400;500;600&family=Noto+Sans+JPwght@400;500;600&display=swap rel=stylesheet
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
 
-    script src=httpscdn.tailwindcss.comscript
-    script
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
         tailwind.config = {
-            darkMode 'class',
-            theme {
-                extend {
-                    colors {
-                         Extracted from the provided logo images
-                        cactus {
-                            green '#8A9A86',  Sage green
-                            dark '#54504C',   Charcoal text
-                            light '#FAF9F6',  Off-white background
-                            night '#1E1E1E',  Dark mode background
-                            card '#2A2A2A'    Dark mode card background
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        /* Brand Colors */
+                        cactus: {
+                            green: '#8A9A86',  /* Sage green */
+                            dark: '#54504C',   /* Charcoal text */
+                            light: '#FAF9F6',  /* Off-white background */
+                            night: '#1E1E1E',  /* Dark mode background */
+                            card: '#2A2A2A'    /* Dark mode card background */
                         }
                     },
-                    fontFamily {
-                        sans ['Montserrat', 'sans-serif'],
-                        jp ['Noto Sans JP', 'sans-serif'],
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        jp: ['Noto Sans JP', 'sans-serif'],
                     }
                 }
             }
         }
-    script
+    </script>
 
-    style
-         Smooth transition for theme switching 
+    <style>
+        /* Smooth transition for theme switching */
         body {
-            transition background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
-         Blend the white JPG background into the light theme, 
-           and handle it gracefully in dark mode 
-        .logo-image {
-            mix-blend-mode multiply;
-        }
-        .dark .logo-image {
-             In dark mode, keeping the white background as a 'sticker' look 
-               often works best for JPG logos, adding a soft radius 
-            mix-blend-mode normal;
-            border-radius 1rem;
-            padding 0.5rem;
-            background-color white;
-        }
-
-         Decorative icon animation 
+        /* Decorative icon animation */
         @keyframes float {
-            0% { transform translateY(0px); }
-            50% { transform translateY(-10px); }
-            100% { transform translateY(0px); }
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
         .float-anim {
-            animation float 6s ease-in-out infinite;
+            animation: float 6s ease-in-out infinite;
         }
-    style
-head
-body class=bg-cactus-light text-cactus-dark darkbg-cactus-night darktext-cactus-light font-sans antialiased min-h-screen flex flex-col
+    </style>
+</head>
 
-    nav class=w-full max-w-5xl mx-auto px-6 py-8 flex justify-between items-center
-        !-- Brand  Logo Area --
-        div class=flex flex-col items-start
-            span class=font-jp text-xl tracking-widerサボテンコーヒーspan
-            span class=text-sm tracking-widest uppercase opacity-70Pop-up Shopspan
-        div
+<body class="bg-cactus-light text-cactus-dark dark:bg-cactus-night dark:text-cactus-light font-sans antialiased min-h-screen flex flex-col">
 
-        !-- Theme Toggle Button --
-        button id=theme-toggle class=p-2 rounded-full hoverbg-black5 darkhoverbg-white10 transition-colors duration-200 focusoutline-none focusring-2 focusring-cactus-green aria-label=Toggle Dark Mode
-            !-- Sun Icon (shows in dark mode) --
-            svg id=theme-toggle-light-icon class=hidden w-6 h-6 text-cactus-light fill=none stroke=currentColor viewBox=0 0 24 24 xmlns=httpwww.w3.org2000svg
-                path stroke-linecap=round stroke-linejoin=round stroke-width=2 d=M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0zpath
-            svg
-            !-- Moon Icon (shows in light mode) --
-            svg id=theme-toggle-dark-icon class=hidden w-6 h-6 text-cactus-dark fill=none stroke=currentColor viewBox=0 0 24 24 xmlns=httpwww.w3.org2000svg
-                path stroke-linecap=round stroke-linejoin=round stroke-width=2 d=M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646zpath
-            svg
-        button
-    nav
+    <nav class="w-full max-w-5xl mx-auto px-6 py-8 flex justify-between items-center">
+        <!-- Brand / Logo Area -->
+        <div class="flex flex-col items-start cursor-pointer hover:opacity-80 transition-opacity">
+            <span class="font-jp text-xl tracking-wider font-semibold">サボテンコーヒー</span>
+            <span class="text-xs tracking-widest uppercase opacity-70 mt-1">Pop-up Shop</span>
+        </div>
 
-    main class=flex-grow flex flex-col items-center justify-start w-full max-w-5xl mx-auto px-6 py-12
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cactus-green" aria-label="Toggle Dark Mode">
+            <!-- Sun Icon (shows in dark mode) -->
+            <svg id="theme-toggle-light-icon" class="hidden w-6 h-6 text-cactus-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <!-- Moon Icon (shows in light mode) -->
+            <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6 text-cactus-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <main class="flex-grow flex flex-col items-center justify-start w-full max-w-5xl mx-auto px-6 py-12">
         
-        header class=text-center flex flex-col items-center mb-20 relative w-full
-            !-- Decorative icon using the provided cc_icon.png --
-            img src=cc_icon.png alt=Decorative Cactus Icon class=w-16 h-16 absolute -top-10 -left-4 opacity-20 darkopacity-10 float-anim pointer-events-none hidden mdblock
+        <header class="text-center flex flex-col items-center mb-24 relative w-full mt-8">
+            <!-- Decorative SVG Icon (Replacing cc_icon.png) -->
+            <div class="absolute -top-12 md:-top-16 md:left-24 opacity-20 dark:opacity-10 float-anim pointer-events-none hidden md:block text-cactus-green">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 21V10a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v11" />
+                    <path d="M10 13H9a2 2 0 0 1-2-2V8" />
+                    <path d="M14 15h1a2 2 0 0 0 2-2v-4" />
+                </svg>
+            </div>
             
-            !-- Main Logo --
-            img src=cc_logo-wht.png alt=Cactus Coffee Logo class=w-64 mdw-80 h-auto mb-8 logo-image transition-all duration-300
+            <!-- Main Logo (Replacing cc_logo-wht.png with an inline scalable SVG) -->
+            <div class="mb-8 flex flex-col items-center justify-center">
+                <svg class="w-32 h-32 md:w-40 md:h-40 text-cactus-green mb-6" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Coffee Cup -->
+                    <path d="M25 65C25 76.0457 33.9543 85 45 85H55C66.0457 85 75 76.0457 75 65V45H25V65Z" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                    <path d="M75 50H82C85.866 50 89 53.134 89 57C89 60.866 85.866 64 82 64H75" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Cactus coming out of cup -->
+                    <path d="M50 45V20C50 17.2386 47.7614 15 45 15C42.2386 15 40 17.2386 40 20V35" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M50 30H55C57.7614 30 60 27.7614 60 25V22" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M40 27H35C32.2386 27 30 24.7614 30 22V19" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Steam / Spikes -->
+                    <circle cx="45" cy="10" r="1.5" fill="currentColor"/>
+                    <circle cx="55" cy="15" r="1.5" fill="currentColor"/>
+                    <circle cx="35" cy="12" r="1.5" fill="currentColor"/>
+                </svg>
+                <h1 class="text-4xl md:text-5xl font-sans font-bold tracking-[0.2em] uppercase text-cactus-dark dark:text-cactus-light">Cactus Coffee</h1>
+            </div>
             
-            p class=text-lg mdtext-xl max-w-xl mx-auto font-jp text-cactus-dark80 darktext-cactus-light80 mt-4 leading-relaxed font-medium
-                A unique blending of precision and warmth.br
-                span class=text-cactus-green mt-2 block砂漠のオアシスで、特別な一杯を。span
-            p
-        header
+            <p class="text-lg md:text-xl max-w-xl mx-auto font-jp text-cactus-dark/80 dark:text-cactus-light/80 mt-4 leading-relaxed font-medium">
+                A unique blending of precision and warmth.<br>
+                <span class="text-cactus-green mt-3 block text-base md:text-lg">砂漠のオアシスで、特別な一杯を。</span>
+            </p>
+        </header>
 
-        section class=w-full
-            div class=flex items-center justify-center mb-12
-                div class=h-px bg-cactus-green30 flex-grow max-w-[100px]div
-                h2 class=text-2xl font-semibold font-jp tracking-widest px-6 uppercase text-cactus-greenMenu  メニューh2
-                div class=h-px bg-cactus-green30 flex-grow max-w-[100px]div
-            div
+        <section class="w-full">
+            <div class="flex items-center justify-center mb-16">
+                <div class="h-px bg-cactus-green/30 flex-grow max-w-[120px]"></div>
+                <h2 class="text-2xl font-semibold font-jp tracking-widest px-8 uppercase text-cactus-green">Menu / メニュー</h2>
+                <div class="h-px bg-cactus-green/30 flex-grow max-w-[120px]"></div>
+            </div>
 
-            div class=grid grid-cols-1 mdgrid-cols-2 lggrid-cols-3 gap-8
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                !-- Menu Item 1 --
-                article class=bg-white darkbg-cactus-card rounded-3xl p-8 shadow-sm border border-black5 darkborder-white5 hover-translate-y-1 transition-transform duration-300 group
-                    div class=flex justify-between items-start mb-4
-                        h3 class=text-xl font-semibold font-jp group-hovertext-cactus-green transition-colorsCoyote Lattebrspan class=text-sm font-medium text-cactus-dark60 darktext-cactus-light60 mt-1 blockコヨーテ・ラテspanh3
-                        div class=text-right
-                            span class=font-semibold text-cactus-green block$6.50span
-                            span class=text-xs text-cactus-green80 darktext-cactus-green60 block mt-0.5¥975span
-                        div
-                    div
-                    p class=text-sm opacity-80 leading-relaxed font-mediumOur signature espresso and steamed milk, with a dash of caramel and lightly sweetened with organic agave nectar.p
-                article
+                <!-- Menu Item 1 -->
+                <article class="bg-white dark:bg-cactus-card rounded-3xl p-8 shadow-sm border border-black/5 dark:border-white/5 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold font-jp group-hover:text-cactus-green transition-colors">
+                            Coyote Latte<br>
+                            <span class="text-sm font-medium text-cactus-dark/60 dark:text-cactus-light/60 mt-1 block">コヨーテ・ラテ</span>
+                        </h3>
+                        <div class="text-right">
+                            <span class="font-semibold text-cactus-green block">$6.50</span>
+                            <span class="text-xs text-cactus-green/80 dark:text-cactus-green/60 block mt-0.5">¥975</span>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-80 leading-relaxed font-medium">Our signature espresso and steamed milk, with a dash of caramel and lightly sweetened with organic agave nectar.</p>
+                </article>
 
-                !-- Menu Item 2 --
-                article class=bg-white darkbg-cactus-card rounded-3xl p-8 shadow-sm border border-black5 darkborder-white5 hover-translate-y-1 transition-transform duration-300 group
-                    div class=flex justify-between items-start mb-4
-                        h3 class=text-xl font-semibold font-jp group-hovertext-cactus-green transition-colorsDesert Pour Overbrspan class=text-sm font-medium text-cactus-dark60 darktext-cactus-light60 mt-1 block砂漠のハンドドリップspanh3
-                        div class=text-right
-                            span class=font-semibold text-cactus-green block$5.00span
-                            span class=text-xs text-cactus-green80 darktext-cactus-green60 block mt-0.5¥750span
-                        div
-                    div
-                    p class=text-sm opacity-80 leading-relaxed font-mediumRotating single-origin beans, roasted light to highlight floral and citrus notes.p
-                article
+                <!-- Menu Item 2 -->
+                <article class="bg-white dark:bg-cactus-card rounded-3xl p-8 shadow-sm border border-black/5 dark:border-white/5 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold font-jp group-hover:text-cactus-green transition-colors">
+                            Desert Pour Over<br>
+                            <span class="text-sm font-medium text-cactus-dark/60 dark:text-cactus-light/60 mt-1 block">砂漠のハンドドリップ</span>
+                        </h3>
+                        <div class="text-right">
+                            <span class="font-semibold text-cactus-green block">$5.00</span>
+                            <span class="text-xs text-cactus-green/80 dark:text-cactus-green/60 block mt-0.5">¥750</span>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-80 leading-relaxed font-medium">Rotating single-origin beans, roasted light to highlight floral and citrus notes.</p>
+                </article>
 
-                !-- Menu Item 3 --
-                article class=bg-white darkbg-cactus-card rounded-3xl p-8 shadow-sm border border-black5 darkborder-white5 hover-translate-y-1 transition-transform duration-300 group
-                    div class=flex justify-between items-start mb-4
-                        h3 class=text-xl font-semibold font-jp group-hovertext-cactus-green transition-colorsPrickly Pear Cold Brewbrspan class=text-sm font-medium text-cactus-dark60 darktext-cactus-light60 mt-1 blockウチワサボテン水出しspanh3
-                        div class=text-right
-                            span class=font-semibold text-cactus-green block$5.50span
-                            span class=text-xs text-cactus-green80 darktext-cactus-green60 block mt-0.5¥825span
-                        div
-                    div
-                    p class=text-sm opacity-80 leading-relaxed font-mediumSmooth, slow-steeped cold brew topped with a vibrant, sweet prickly pear cold foam.p
-                article
+                <!-- Menu Item 3 -->
+                <article class="bg-white dark:bg-cactus-card rounded-3xl p-8 shadow-sm border border-black/5 dark:border-white/5 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold font-jp group-hover:text-cactus-green transition-colors">
+                            Prickly Pear Cold Brew<br>
+                            <span class="text-sm font-medium text-cactus-dark/60 dark:text-cactus-light/60 mt-1 block">ウチワサボテン水出し</span>
+                        </h3>
+                        <div class="text-right">
+                            <span class="font-semibold text-cactus-green block">$5.50</span>
+                            <span class="text-xs text-cactus-green/80 dark:text-cactus-green/60 block mt-0.5">¥825</span>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-80 leading-relaxed font-medium">Smooth, slow-steeped cold brew topped with a vibrant, sweet prickly pear cold foam.</p>
+                </article>
 
-                !-- Menu Item 4 --
-                article class=bg-white darkbg-cactus-card rounded-3xl p-8 shadow-sm border border-black5 darkborder-white5 hover-translate-y-1 transition-transform duration-300 group
-                    div class=flex justify-between items-start mb-4
-                        h3 class=text-xl font-semibold font-jp group-hovertext-cactus-green transition-colorsYuzu Glazed Donutbrspan class=text-sm font-medium text-cactus-dark60 darktext-cactus-light60 mt-1 block柚子グレーズド・ドーナツspanh3
-                        div class=text-right
-                            span class=font-semibold text-cactus-green block$4.00span
-                            span class=text-xs text-cactus-green80 darktext-cactus-green60 block mt-0.5¥600span
-                        div
-                    div
-                    p class=text-sm opacity-80 leading-relaxed font-mediumFluffy, brioche-style donut coated in a zesty, tart Japanese citrus glaze.p
-                article
+                <!-- Menu Item 4 -->
+                <article class="bg-white dark:bg-cactus-card rounded-3xl p-8 shadow-sm border border-black/5 dark:border-white/5 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold font-jp group-hover:text-cactus-green transition-colors">
+                            Yuzu Glazed Donut<br>
+                            <span class="text-sm font-medium text-cactus-dark/60 dark:text-cactus-light/60 mt-1 block">柚子グレーズド・ドーナツ</span>
+                        </h3>
+                        <div class="text-right">
+                            <span class="font-semibold text-cactus-green block">$4.00</span>
+                            <span class="text-xs text-cactus-green/80 dark:text-cactus-green/60 block mt-0.5">¥600</span>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-80 leading-relaxed font-medium">Fluffy, brioche-style donut coated in a zesty, tart Japanese citrus glaze.</p>
+                </article>
 
-                !-- Menu Item 5 --
-                article class=bg-white darkbg-cactus-card rounded-3xl p-8 shadow-sm border border-black5 darkborder-white5 hover-translate-y-1 transition-transform duration-300 group
-                    div class=flex justify-between items-start mb-4
-                        h3 class=text-xl font-semibold font-jp group-hovertext-cactus-green transition-colorsMatcha Melon Panbrspan class=text-sm font-medium text-cactus-dark60 darktext-cactus-light60 mt-1 block抹茶メロンパンspanh3
-                        div class=text-right
-                            span class=font-semibold text-cactus-green block$4.50span
-                            span class=text-xs text-cactus-green80 darktext-cactus-green60 block mt-0.5¥675span
-                        div
-                    div
-                    p class=text-sm opacity-80 leading-relaxed font-mediumClassic Japanese sweet bread featuring a crispy, slightly bitter matcha cookie crust.p
-                article
+                <!-- Menu Item 5 -->
+                <article class="bg-white dark:bg-cactus-card rounded-3xl p-8 shadow-sm border border-black/5 dark:border-white/5 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold font-jp group-hover:text-cactus-green transition-colors">
+                            Matcha Melon Pan<br>
+                            <span class="text-sm font-medium text-cactus-dark/60 dark:text-cactus-light/60 mt-1 block">抹茶メロンパン</span>
+                        </h3>
+                        <div class="text-right">
+                            <span class="font-semibold text-cactus-green block">$4.50</span>
+                            <span class="text-xs text-cactus-green/80 dark:text-cactus-green/60 block mt-0.5">¥675</span>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-80 leading-relaxed font-medium">Classic Japanese sweet bread featuring a crispy, slightly bitter matcha cookie crust.</p>
+                </article>
 
-                !-- Menu Item 6 --
-                article class=bg-white darkbg-cactus-card rounded-3xl p-8 shadow-sm border border-black5 darkborder-white5 hover-translate-y-1 transition-transform duration-300 group
-                    div class=flex justify-between items-start mb-4
-                        h3 class=text-xl font-semibold font-jp group-hovertext-cactus-green transition-colorsMiso Caramel Croissantbrspan class=text-sm font-medium text-cactus-dark60 darktext-cactus-light60 mt-1 block味噌キャラメルクロワッサンspanh3
-                        div class=text-right
-                            span class=font-semibold text-cactus-green block$5.50span
-                            span class=text-xs text-cactus-green80 darktext-cactus-green60 block mt-0.5¥825span
-                        div
-                    div
-                    p class=text-sm opacity-80 leading-relaxed font-mediumIncredibly flaky, buttery pastry baked with a savory-sweet miso caramel core.p
-                article
+                <!-- Menu Item 6 -->
+                <article class="bg-white dark:bg-cactus-card rounded-3xl p-8 shadow-sm border border-black/5 dark:border-white/5 hover:-translate-y-1 hover:shadow-md transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold font-jp group-hover:text-cactus-green transition-colors">
+                            Miso Caramel Croissant<br>
+                            <span class="text-sm font-medium text-cactus-dark/60 dark:text-cactus-light/60 mt-1 block">味噌キャラメルクロワッサン</span>
+                        </h3>
+                        <div class="text-right">
+                            <span class="font-semibold text-cactus-green block">$5.50</span>
+                            <span class="text-xs text-cactus-green/80 dark:text-cactus-green/60 block mt-0.5">¥825</span>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-80 leading-relaxed font-medium">Incredibly flaky, buttery pastry baked with a savory-sweet miso caramel core.</p>
+                </article>
 
-            div
-        section
-    main
+            </div>
+        </section>
+    </main>
 
-    footer class=w-full text-center py-12 mt-12 border-t border-black5 darkborder-white5
-        p class=font-jp text-sm opacity-60 font-medium© 2026 Cactus Coffee サボテンコーヒー. All rights reserved.p
-        p class=text-xs opacity-40 mt-2 font-mediumCurrently popping up somewhere sunny.p
-    footer
+    <footer class="w-full text-center py-12 mt-12 border-t border-black/5 dark:border-white/5">
+        <p class="font-jp text-sm opacity-60 font-medium">© 2026 Cactus Coffee サボテンコーヒー. All rights reserved.</p>
+        <p class="text-xs opacity-40 mt-2 font-medium">Currently popping up somewhere sunny.</p>
+    </footer>
 
-    script
+    <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
         const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-         Check local storage or default to light mode on load
-        if (localStorage.getItem('color-theme') === 'dark') {
+        // Check local storage or default to light mode on load
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
             lightIcon.classList.remove('hidden');
         } else {
             document.documentElement.classList.remove('dark');
             darkIcon.classList.remove('hidden');
-            localStorage.setItem('color-theme', 'light');
         }
 
-         Toggle functionality
+        // Toggle functionality
         themeToggleBtn.addEventListener('click', function() {
-             Toggle icons
+            // Toggle icons
             darkIcon.classList.toggle('hidden');
             lightIcon.classList.toggle('hidden');
 
-             If is dark mode
+            // If is dark mode
             if (document.documentElement.classList.contains('dark')) {
                 document.documentElement.classList.remove('dark');
                 localStorage.setItem('color-theme', 'light');
             } else {
-                 If is light mode
+                // If is light mode
                 document.documentElement.classList.add('dark');
                 localStorage.setItem('color-theme', 'dark');
             }
         });
-    script
-body
-html
+    </script>
+</body>
+</html>
